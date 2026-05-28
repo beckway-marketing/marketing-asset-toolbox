@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beckway Marketing Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #001252;
+  --orange: #F06836;
+  --midnavy: #1A3468;
+  --steel: #8A93A6;
+  --lgray: #CCD0DC;
+  --offwhite: #F4F5F7;
+  --paper: #F7FAFC;
+  --mist: #E2E8F0;
+  --tintnavy: #EEF2F8;
+  --tintpeach: #FDF4EF;
+  --body: #4A5568;
+  --caption: #718096;
+  --green: #70AD47;
+  --red: #B83227;
+  --shadow-sm: 0 1px 2px rgba(0,18,82,0.04), 0 1px 3px rgba(0,18,82,0.06);
+  --shadow-md: 0 4px 12px rgba(0,18,82,0.06), 0 2px 4px rgba(0,18,82,0.04);
+  --radius: 8px;
+  --radius-sm: 4px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Calibri", "Segoe UI", system-ui, sans-serif;
+  color: var(--body);
+  background: var(--paper);
+  font-size: 15px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.mono, .label {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+.label {
+  font-weight: 700;
+  color: var(--midnavy);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+/* HEADER */
+header {
+  background: white;
+  border-bottom: 1px solid var(--mist);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.brand-mark {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--navy);
+  letter-spacing: 0.1em;
+}
+.brand-sub {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: var(--steel);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+.sync-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--caption);
+}
+.sync-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  transition: background 0.2s;
+}
+.sync-dot.saving { background: var(--orange); }
+.sync-dot.error { background: var(--red); }
+.sync-dot.local { background: var(--steel); }
+
+/* TABS */
+.tabs {
+  background: white;
+  border-bottom: 1px solid var(--mist);
+  padding: 0 32px;
+  display: flex;
+  gap: 4px;
+  position: sticky;
+  top: 65px;
+  z-index: 49;
+}
+.tab-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--steel);
+  background: none;
+  border: none;
+  padding: 14px 18px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tab-btn:hover { color: var(--midnavy); }
+.tab-btn.active {
+  color: var(--navy);
+  border-bottom-color: var(--orange);
+}
+.tab-badge {
+  background: var(--orange);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* MAIN */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px;
+}
+.tab-section { display: none; }
+.tab-section.active { display: block; }
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: var(--midnavy);
+  font-size: 15px;
+  margin: 0 0 10px;
+}
+.section-intro {
+  color: var(--body);
+  margin: 0 0 24px;
+  font-size: 14px;
+}
+
+/* OVERVIEW */
+.search-hero {
+  background: white;
+  border-radius: var(--radius);
+  border: 1px solid var(--mist);
+  padding: 32px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.search-hero h1 { margin-bottom: 4px; }
+.search-hero .label { margin-bottom: 16px; display: block; }
+.search-box {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+.search-input {
+  flex: 1;
+  font-size: 16px;
+  font-family: "Calibri", system-ui, sans-serif;
+  padding: 14px 18px;
+  border: 1.5px solid var(--mist);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.15s;
+  background: var(--paper);
+}
+.search-input:focus {
+  border-color: var(--navy);
+  background: white;
+}
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--navy);
+  color: white;
+}
+.btn-primary:hover { background: var(--midnavy); }
+.btn-orange {
+  background: var(--orange);
+  color: white;
+}
+.btn-orange:hover { background: #d85a2c; }
+.btn-outline {
+  background: white;
+  color: var(--navy);
+  border: 1.5px solid var(--mist);
+}
+.btn-outline:hover { border-color: var(--navy); }
+.btn-ghost {
+  background: transparent;
+  color: var(--midnavy);
+  padding: 8px 12px;
+  font-size: 12px;
+}
+.btn-ghost:hover { background: var(--tintnavy); }
+.btn-danger {
+  background: white;
+  color: var(--red);
+  border: 1.5px solid var(--mist);
+}
+.btn-danger:hover { border-color: var(--red); background: #fef5f5; }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+
+/* Search results */
+.search-results {
+  margin-top: 20px;
+  border-top: 1px solid var(--mist);
+  padding-top: 20px;
+  display: none;
+}
+.search-results.show { display: block; }
+.search-result {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--mist);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.search-result:hover { background: var(--paper); margin: 0 -16px; padding: 14px 16px; border-radius: var(--radius-sm); }
+.search-result:last-child { border-bottom: none; }
+.search-empty {
+  padding: 32px;
+  text-align: center;
+  background: var(--tintpeach);
+  border: 1px solid var(--orange);
+  border-radius: var(--radius);
+}
+.search-empty p { margin: 0 0 16px; color: var(--midnavy); }
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.stat-value {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--navy);
+  line-height: 1;
+}
+.stat-label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--steel);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+}
+.stat-card.alert { border-left: 4px solid var(--orange); }
+.stat-card.alert .stat-value { color: var(--orange); }
+
+/* Needs Review banner */
+.review-banner {
+  background: var(--tintpeach);
+  border: 1px solid var(--orange);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.review-banner-text strong { color: var(--midnavy); font-family: "Montserrat", sans-serif; }
+.review-banner-text { color: var(--body); }
+.review-banner.empty { display: none; }
+
+/* Recently viewed */
+.recent-strip {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.recent-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.recent-item {
+  min-width: 220px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.recent-item:hover { border-color: var(--navy); }
+.recent-item .item-title {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.recent-item .item-meta {
+  font-size: 11px;
+  color: var(--caption);
+}
+
+/* Quick actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.quick-action {
+  background: white;
+  border: 1.5px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+.quick-action:hover {
+  border-color: var(--navy);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.quick-action-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.quick-action-sub {
+  font-size: 12px;
+  color: var(--caption);
+}
+
+/* GROUPED ASSET VIEW (practice/industry) */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: var(--steel);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-chip.active {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.filter-chip:hover { border-color: var(--navy); color: var(--navy); }
+.filter-chip.active:hover { color: white; }
+
+.group-section {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--mist);
+}
+.group-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 16px;
+}
+.group-count {
+  font-size: 12px;
+  color: var(--steel);
+}
+.asset-list { display: flex; flex-direction: column; }
+.asset-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto auto;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--mist);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.asset-row:hover { background: var(--paper); margin: 0 -12px; padding: 12px; border-radius: var(--radius-sm); }
+.asset-row:last-child { border-bottom: none; }
+.asset-row.review-flag { border-left: 3px solid var(--orange); padding-left: 12px; margin-left: -12px; }
+.asset-title {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 14px;
+}
+.asset-meta {
+  font-size: 12px;
+  color: var(--caption);
+  margin-top: 2px;
+}
+.chip {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: var(--tintnavy);
+  color: var(--midnavy);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.chip.orange { background: var(--tintpeach); color: var(--orange); border: 1px solid var(--orange); }
+.chip.steel { background: var(--mist); color: var(--midnavy); }
+.asset-actions {
+  display: flex;
+  gap: 4px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--steel);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s;
+}
+.icon-btn:hover { background: var(--mist); color: var(--navy); }
+.icon-btn.danger:hover { background: #fef5f5; color: var(--red); }
+
+/* PIPELINE */
+.pipeline-toolbar {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.dropzone {
+  border: 2px dashed var(--mist);
+  border-radius: var(--radius);
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--paper);
+  margin-bottom: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.dropzone.dragover {
+  border-color: var(--orange);
+  background: var(--tintpeach);
+}
+.dropzone-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.dropzone-sub {
+  color: var(--caption);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.pipeline-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+.pipeline-col {
+  background: var(--offwhite);
+  border-radius: var(--radius);
+  padding: 14px;
+  min-height: 300px;
+}
+.pipeline-col-header {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--midnavy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--mist);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.pipeline-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.15s;
+}
+.pipeline-card:hover { border-color: var(--navy); }
+.pipeline-card-title {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.pipeline-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.pipeline-card-meta {
+  font-size: 11px;
+  color: var(--caption);
+}
+.auto-tag-badge {
+  background: var(--tintnavy);
+  color: var(--midnavy);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* RESOURCES */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.resource-card {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+.resource-card h3 { margin-bottom: 8px; }
+.resource-card p { color: var(--body); font-size: 14px; margin: 0 0 16px; flex: 1; }
+.resource-card .btn { align-self: flex-start; }
+
+.color-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.swatch {
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+}
+.swatch-color {
+  height: 60px;
+}
+.swatch-meta {
+  padding: 10px 12px;
+}
+.swatch-name {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+}
+.swatch-hex {
+  font-family: "Consolas", monospace;
+  font-size: 11px;
+  color: var(--caption);
+  margin-top: 2px;
+}
+
+.help-section {
+  background: white;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.help-section ol, .help-section ul { padding-left: 22px; color: var(--body); }
+.help-section li { margin-bottom: 8px; }
+.help-section a { color: var(--midnavy); text-decoration: underline; }
+
+/* MODAL */
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,18,82,0.5);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-bg.show { display: flex; }
+.modal {
+  background: white;
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--mist);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 18px;
+}
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--steel);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-body { padding: 24px; }
+.modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--mist);
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.form-row {
+  margin-bottom: 16px;
+}
+.form-row label {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--midnavy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.form-row input, .form-row select, .form-row textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--mist);
+  border-radius: var(--radius-sm);
+  font-family: "Calibri", system-ui, sans-serif;
+  font-size: 14px;
+  background: white;
+  color: var(--body);
+  outline: none;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+  border-color: var(--navy);
+}
+.form-row textarea { min-height: 80px; resize: vertical; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 12px 20px;
+  background: var(--navy);
+  color: white;
+  border-radius: var(--radius);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 200;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast.error { background: var(--red); }
+.toast.success { background: var(--green); }
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--caption);
+}
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--mist);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--caption);
+  background: white;
+  border: 1px dashed var(--mist);
+  border-radius: var(--radius);
+}
+.empty-state h3 { color: var(--midnavy); margin-bottom: 8px; }
+.empty-state p { margin: 0 0 16px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--mist);
+  background: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--caption);
+  margin-top: 40px;
+}
+footer .wordmark {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--steel);
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 900px) {
+  .pipeline-board { grid-template-columns: repeat(2, 1fr); }
+  .tabs { overflow-x: auto; padding: 0 16px; }
+  header, footer { padding: 16px; }
+  main { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-mark">BECKWAY</div>
+    <div class="brand-sub">Marketing Hub</div>
+  </div>
+  <div class="sync-status">
+    <span class="sync-dot" id="sync-dot"></span>
+    <span id="sync-text">Loading...</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="overview">Overview</button>
+  <button class="tab-btn" data-tab="practice">Practice</button>
+  <button class="tab-btn" data-tab="industry">Industry</button>
+  <button class="tab-btn" data-tab="pipeline">Content Pipeline</button>
+  <button class="tab-btn" data-tab="resources">Resources &amp; Help</button>
+</nav>
+
+<main>
+
+<!-- OVERVIEW -->
+<section id="tab-overview" class="tab-section active">
+  <div class="search-hero">
+    <span class="label">Find Anything</span>
+    <h1>What can I help you find?</h1>
+    <p class="section-intro">Search across case studies, methodologies, one pagers, decks, and everything in our library.</p>
+    <div class="search-box">
+      <input type="text" id="search-input" class="search-input" placeholder="Try: healthcare case study, integration methodology, Q4 newsletter...">
+      <button class="btn btn-primary" onclick="runSearch()">Search</button>
+    </div>
+    <div id="search-results" class="search-results"></div>
+  </div>
+
+  <div id="review-banner" class="review-banner empty">
+    <div class="review-banner-text">
+      <strong id="review-count">0 items</strong> need review (added before May 28, 2026 or last reviewed over a year ago).
+    </div>
+    <button class="btn btn-orange btn-sm" onclick="showReviewItems()">Review Now</button>
+  </div>
+
+  <div class="stats-grid" id="stats-grid"></div>
+
+  <div class="recent-strip" id="recent-strip" style="display:none">
+    <h3>Recently Viewed</h3>
+    <div class="recent-list" id="recent-list"></div>
+  </div>
+
+  <h2 style="margin-top:32px">Quick Actions</h2>
+  <div class="quick-actions">
+    <a href="https://app.smartsheet.com/b/form/e9c25e4dad3942149a25d70d0ca16c27" target="_blank" class="quick-action">
+      <div class="quick-action-title">Create a Case Study</div>
+      <div class="quick-action-sub">Fill out the case study intake form</div>
+    </a>
+    <a href="https://form.asana.com/?k=zFupRdwFkdaEzpCW9ILLPg&amp;d=1212923260050528" target="_blank" class="quick-action">
+      <div class="quick-action-title">Submit a Marketing Request</div>
+      <div class="quick-action-sub">Need something new? Send it our way</div>
+    </a>
+    <a href="https://beckwaygroup.bloomfire.com/" target="_blank" class="quick-action">
+      <div class="quick-action-title">Take Me to Bloomfire</div>
+      <div class="quick-action-sub">Browse the broader knowledge base</div>
+    </a>
+    <a href="https://beckwaygroup.bloomfire.com/posts/3720759-beckway-pitch-templates" target="_blank" class="quick-action">
+      <div class="quick-action-title">Download Pitch Templates</div>
+      <div class="quick-action-sub">Pre-built decks for client pursuits</div>
+    </a>
+    <a href="#" onclick="event.preventDefault(); toast('Calendly link coming soon. Reach out to Marketing for now.','info'); return false;" class="quick-action">
+      <div class="quick-action-title">Schedule a Call with Marketing</div>
+      <div class="quick-action-sub">Coming soon</div>
+    </a>
+    <a href="#" onclick="event.preventDefault(); switchTab('resources'); return false;" class="quick-action">
+      <div class="quick-action-title">Brand &amp; Resources</div>
+      <div class="quick-action-sub">Colors, fonts, templates, guidelines</div>
+    </a>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="tab-practice" class="tab-section">
+  <h1>Library by Practice Area</h1>
+  <p class="section-intro">Assets organized by the practice they belong to. Click any item to view or edit.</p>
+  <div class="toolbar">
+    <span class="label">Filter:</span>
+    <div class="filter-chip active" data-pfilter="all">All</div>
+    <div class="filter-chip" data-pfilter="review">Needs Review</div>
+    <button class="btn btn-outline btn-sm" style="margin-left:auto" onclick="openNewAssetModal()">+ Add Asset</button>
+  </div>
+  <div id="practice-groups"></div>
+</section>
+
+<!-- INDUSTRY -->
+<section id="tab-industry" class="tab-section">
+  <h1>Library by Industry</h1>
+  <p class="section-intro">Same assets, organized by the industries we serve.</p>
+  <div class="toolbar">
+    <span class="label">Filter:</span>
+    <div class="filter-chip active" data-ifilter="all">All</div>
+    <div class="filter-chip" data-ifilter="review">Needs Review</div>
+    <button class="btn btn-outline btn-sm" style="margin-left:auto" onclick="openNewAssetModal()">+ Add Asset</button>
+  </div>
+  <div id="industry-groups"></div>
+</section>
+
+<!-- PIPELINE -->
+<section id="tab-pipeline" class="tab-section">
+  <h1>Content Pipeline</h1>
+  <p class="section-intro">Drop in new content and we'll auto-tag it. Edit the tags if we got something wrong.</p>
+
+  <div class="dropzone" id="dropzone" onclick="document.getElementById('file-input').click()">
+    <div class="dropzone-title">Drop files here or click to browse</div>
+    <div class="dropzone-sub">We'll auto-detect type, practice, and industry from filename and content</div>
+    <button class="btn btn-outline">Or add manually</button>
+    <input type="file" id="file-input" multiple style="display:none">
+  </div>
+
+  <div class="pipeline-toolbar">
+    <div><span class="label">In Progress</span> <span id="pipeline-count" style="color:var(--caption);font-size:12px;margin-left:8px"></span></div>
+    <button class="btn btn-outline btn-sm" onclick="openNewPipelineModal()">+ Add Item</button>
+  </div>
+
+  <div class="pipeline-board" id="pipeline-board">
+    <div class="pipeline-col" data-status="Idea">
+      <div class="pipeline-col-header">Idea <span id="col-idea-count">0</span></div>
+      <div class="pipeline-col-body" data-col="Idea"></div>
+    </div>
+    <div class="pipeline-col" data-status="Drafting">
+      <div class="pipeline-col-header">Drafting <span id="col-drafting-count">0</span></div>
+      <div class="pipeline-col-body" data-col="Drafting"></div>
+    </div>
+    <div class="pipeline-col" data-status="In Review">
+      <div class="pipeline-col-header">In Review <span id="col-review-count">0</span></div>
+      <div class="pipeline-col-body" data-col="In Review"></div>
+    </div>
+    <div class="pipeline-col" data-status="Approved">
+      <div class="pipeline-col-header">Approved <span id="col-approved-count">0</span></div>
+      <div class="pipeline-col-body" data-col="Approved"></div>
+    </div>
+    <div class="pipeline-col" data-status="Published">
+      <div class="pipeline-col-header">Published <span id="col-published-count">0</span></div>
+      <div class="pipeline-col-body" data-col="Published"></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES & HELP -->
+<section id="tab-resources" class="tab-section">
+  <h1>Resources &amp; Help</h1>
+  <p class="section-intro">Brand assets, templates, and everything you need to keep our work consistent.</p>
+
+  <h2>Quick Actions</h2>
+  <div class="resource-grid">
+    <div class="resource-card">
+      <span class="label">Create</span>
+      <h3>Create a Case Study</h3>
+      <p>Have a project worth showcasing? Fill out the intake form and we'll take it from there.</p>
+      <a href="https://app.smartsheet.com/b/form/e9c25e4dad3942149a25d70d0ca16c27" target="_blank" class="btn btn-orange">Open Form</a>
+    </div>
+    <div class="resource-card">
+      <span class="label">Request</span>
+      <h3>Submit a Marketing Request</h3>
+      <p>Need a new asset, deck, or campaign? Submit a request and we'll prioritize it.</p>
+      <a href="https://form.asana.com/?k=zFupRdwFkdaEzpCW9ILLPg&amp;d=1212923260050528" target="_blank" class="btn btn-primary">Submit Request</a>
+    </div>
+    <div class="resource-card">
+      <span class="label">Schedule</span>
+      <h3>Schedule a Call with Marketing</h3>
+      <p>Want to talk through an idea or campaign? Book time directly.</p>
+      <button class="btn btn-outline" onclick="toast('Calendly link coming soon. Email Christine in the meantime.','info')">Coming Soon</button>
+    </div>
+    <div class="resource-card">
+      <span class="label">Browse</span>
+      <h3>Take Me to Bloomfire</h3>
+      <p>Browse the firm-wide knowledge base for policies, research, and broader content.</p>
+      <a href="https://beckwaygroup.bloomfire.com/" target="_blank" class="btn btn-outline">Open Bloomfire</a>
+    </div>
+    <div class="resource-card">
+      <span class="label">Templates</span>
+      <h3>Pitch Templates</h3>
+      <p>Pre-built proposal and pitch decks ready for client work.</p>
+      <a href="https://beckwaygroup.bloomfire.com/posts/3720759-beckway-pitch-templates" target="_blank" class="btn btn-outline">View Templates</a>
+    </div>
+    <div class="resource-card">
+      <span class="label">Slide Master</span>
+      <h3>Download Slide Master</h3>
+      <p>The official 2026 PowerPoint master file. Start every deck from here.</p>
+      <button class="btn btn-outline" onclick="toast('Slide master link not yet configured. Add the URL in settings.','info')">Configure Link</button>
+    </div>
+  </div>
+
+  <h2>Brand Colors</h2>
+  <div class="help-section">
+    <p style="margin-top:0">Primary palette. Navy is the lead, orange is the accent. Don't mix in colors outside this palette without checking with Marketing.</p>
+    <div class="color-swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#001252"></div><div class="swatch-meta"><div class="swatch-name">NAVY</div><div class="swatch-hex">#001252</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#F06836"></div><div class="swatch-meta"><div class="swatch-name">ORANGE</div><div class="swatch-hex">#F06836</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1A3468"></div><div class="swatch-meta"><div class="swatch-name">MID NAVY</div><div class="swatch-hex">#1A3468</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#8A93A6"></div><div class="swatch-meta"><div class="swatch-name">STEEL</div><div class="swatch-hex">#8A93A6</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#CCD0DC"></div><div class="swatch-meta"><div class="swatch-name">LIGHT GRAY</div><div class="swatch-hex">#CCD0DC</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#70AD47"></div><div class="swatch-meta"><div class="swatch-name">GREEN</div><div class="swatch-hex">#70AD47</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#B83227"></div><div class="swatch-meta"><div class="swatch-name">RED</div><div class="swatch-hex">#B83227</div></div></div>
+    </div>
+    <h3 style="margin-top:20px">Typography</h3>
+    <ul>
+      <li><strong>Headlines:</strong> Montserrat Bold, Navy</li>
+      <li><strong>Section labels:</strong> Montserrat Bold ALL CAPS, Mid Navy, tracked</li>
+      <li><strong>Body text:</strong> Calibri, color #4A5568</li>
+      <li><strong>BECKWAY wordmark:</strong> Montserrat Bold, letter-spaced</li>
+    </ul>
+  </div>
+
+  <h2>How to Use This Hub</h2>
+  <div class="help-section">
+    <ol>
+      <li><strong>Search first.</strong> Hit the Overview tab and type what you're looking for. Most things live here already.</li>
+      <li><strong>Browse by Practice or Industry</strong> if you're not sure of the exact name.</li>
+      <li><strong>Drop new content into the Pipeline tab.</strong> The hub auto-tags it. Click to fix anything that's wrong.</li>
+      <li><strong>Anything marked "Needs Review"</strong> hasn't been touched in over a year. Open it, confirm it's still accurate, and mark it reviewed.</li>
+      <li><strong>Can't find what you need?</strong> Submit a Marketing Request from the Quick Actions above.</li>
+    </ol>
+  </div>
+
+  <h2>Best Practices for Sharing Externally</h2>
+  <div class="help-section">
+    <ul>
+      <li><strong>Confirm the asset is current.</strong> If it's flagged for review, don't send it out until Marketing confirms.</li>
+      <li><strong>Check with the owner</strong> if you're unsure whether something is approved for external use.</li>
+      <li><strong>Use the latest brand templates.</strong> Older formats may not match the 2026 standards.</li>
+      <li><strong>No off-brand colors or fonts.</strong> Stick to the palette and typography above.</li>
+      <li><strong>When in doubt, reach out to Christine in Marketing.</strong> Better to ask than to send a stale or off-brand asset.</li>
+    </ul>
+  </div>
+
+  <h2>Maintenance</h2>
+  <div class="help-section">
+    <p>If you're managing the hub data, you can export and re-import the full state below. Useful for backups or moving the hub to a new environment.</p>
+    <button class="btn btn-outline" onclick="exportData()">Export Hub Data</button>
+    <button class="btn btn-outline" onclick="document.getElementById('import-input').click()">Import Hub Data</button>
+    <input type="file" id="import-input" accept=".json" style="display:none" onchange="importData(this.files[0])">
+  </div>
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this) closeModal()">
+  <div class="modal" id="modal-content"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<footer>
+  <span>CONFIDENTIAL AND PROPRIETARY. Use of this information without specific permission from Beckway is prohibited.</span>
+  <span class="wordmark">BECKWAY</span>
+</footer>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const CONFIG = {
+  reviewCutoff: "2026-05-28",
+  reviewIntervalDays: 365,
+  practiceAreas: [
+    "Operations",
+    "Commercial / Go-to-Market",
+    "Finance / CFO Services",
+    "Technology / Digital",
+    "Human Capital",
+    "M&A / Integration",
+    "Value Creation",
+    "Cross-Practice"
+  ],
+  industries: [
+    "Healthcare",
+    "Industrial / Manufacturing",
+    "Financial Services",
+    "Consumer / Retail",
+    "Software / Tech",
+    "Business Services",
+    "Energy",
+    "Education",
+    "Cross-Industry"
+  ],
+  contentTypes: [
+    "Case Study",
+    "Methodology",
+    "One Pager",
+    "Pitch Deck",
+    "Newsletter",
+    "Newsletter Opener",
+    "LinkedIn Post",
+    "Issue to Impact",
+    "Beckway Insights",
+    "Article",
+    "Brochure",
+    "Whitepaper",
+    "Webinar",
+    "Video",
+    "Email Campaign",
+    "Template",
+    "Other"
+  ],
+  pipelineStatuses: ["Idea", "Drafting", "In Review", "Approved", "Published"]
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let STATE = {
+  library: [],
+  pipeline: [],
+  recentlyViewed: [],
+  lastUpdated: null,
+  lastUpdatedBy: null
+};
+
+let currentUser = localStorage.getItem("bw_user") || "";
+if (!currentUser) {
+  currentUser = prompt("Welcome to the Marketing Hub. Who are you? (Used for the audit trail)") || "Anonymous";
+  localStorage.setItem("bw_user", currentUser);
+}
+
+const isHosted = window.location.protocol === "http:" || window.location.protocol === "https:";
+let savePending = false;
+let saveTimer = null;
+
+// ============================================================
+// API
+// ============================================================
+async function loadState() {
+  setSync("loading", "Loading...");
+  try {
+    if (isHosted) {
+      const r = await fetch("/.netlify/functions/state");
+      if (!r.ok) throw new Error("Load failed");
+      const data = await r.json();
+      STATE = Object.assign(STATE, data);
+    } else {
+      const stored = localStorage.getItem("bw_hub_state");
+      if (stored) STATE = Object.assign(STATE, JSON.parse(stored));
+      setSync("local", "Local-only mode");
+      return;
+    }
+    setSync("ok", "Synced");
+  } catch (e) {
+    console.error(e);
+    setSync("error", "Load error");
+    toast("Could not load hub data. " + e.message, "error");
+  }
+}
+
+async function saveState() {
+  STATE.lastUpdated = new Date().toISOString();
+  STATE.lastUpdatedBy = currentUser;
+  setSync("saving", "Saving...");
+  try {
+    if (isHosted) {
+      const r = await fetch("/.netlify/functions/state", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(STATE)
+      });
+      if (!r.ok) throw new Error("Save failed");
+      setSync("ok", "Saved by " + currentUser);
+    } else {
+      localStorage.setItem("bw_hub_state", JSON.stringify(STATE));
+      setSync("local", "Saved locally");
+    }
+  } catch (e) {
+    console.error(e);
+    setSync("error", "Save error");
+    toast("Could not save: " + e.message, "error");
+  }
+}
+
+function queueSave() {
+  if (saveTimer) clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveState, 500);
+}
+
+async function autoTag(filename, hint) {
+  // Try server-side AI first if hosted
+  if (isHosted) {
+    try {
+      const r = await fetch("/.netlify/functions/tag", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ filename, hint })
+      });
+      if (r.ok) return await r.json();
+    } catch (e) {
+      console.warn("AI tag failed, falling back to heuristics", e);
+    }
+  }
+  // Heuristic fallback (always works)
+  return heuristicTag(filename, hint);
+}
+
+function heuristicTag(filename, hint) {
+  const f = (filename + " " + (hint||"")).toLowerCase();
+  const result = { type: "Other", practiceArea: "Cross-Practice", industry: "Cross-Industry", tags: [] };
+
+  const typeRules = [
+    [/case[\s_-]?study|^cs[\s_-]/, "Case Study"],
+    [/methodology|method\b/, "Methodology"],
+    [/one[\s_-]?pager|1[\s_-]?pager/, "One Pager"],
+    [/pitch|deck/, "Pitch Deck"],
+    [/newsletter[\s_-]?opener/, "Newsletter Opener"],
+    [/newsletter/, "Newsletter"],
+    [/linkedin|li[\s_-]?post/, "LinkedIn Post"],
+    [/issue[\s_-]?to[\s_-]?impact|i2i/, "Issue to Impact"],
+    [/insight/, "Beckway Insights"],
+    [/article/, "Article"],
+    [/brochure/, "Brochure"],
+    [/whitepaper|white[\s_-]paper/, "Whitepaper"],
+    [/webinar/, "Webinar"],
+    [/\.mp4|\.mov|video/, "Video"],
+    [/email[\s_-]campaign/, "Email Campaign"],
+    [/template/, "Template"]
+  ];
+  for (const [re, val] of typeRules) { if (re.test(f)) { result.type = val; break; } }
+
+  const practiceRules = [
+    [/operations?|\bops\b/, "Operations"],
+    [/commercial|gtm|go[\s_-]?to[\s_-]?market|sales[\s_-]/, "Commercial / Go-to-Market"],
+    [/finance|\bcfo\b|fp&?a/, "Finance / CFO Services"],
+    [/tech|digital|software|data|\bit\b/, "Technology / Digital"],
+    [/talent|\bhr\b|human[\s_-]?capital|people/, "Human Capital"],
+    [/m&a|merger|acquisition|integration/, "M&A / Integration"],
+    [/value[\s_-]?creation|\bvcp\b/, "Value Creation"]
+  ];
+  for (const [re, val] of practiceRules) { if (re.test(f)) { result.practiceArea = val; break; } }
+
+  const industryRules = [
+    [/healthcare|medical|pharma|biotech/, "Healthcare"],
+    [/industrial|manufactur/, "Industrial / Manufacturing"],
+    [/financial[\s_-]?services|banking|\bfs\b/, "Financial Services"],
+    [/consumer|retail|cpg/, "Consumer / Retail"],
+    [/saas|software/, "Software / Tech"],
+    [/business[\s_-]?services/, "Business Services"],
+    [/energy|oil|gas|utility/, "Energy"],
+    [/education|edtech/, "Education"]
+  ];
+  for (const [re, val] of industryRules) { if (re.test(f)) { result.industry = val; break; } }
+
+  return result;
+}
+
+// ============================================================
+// UTIL
+// ============================================================
+function uid() { return Math.random().toString(36).slice(2,10) + Date.now().toString(36).slice(-4); }
+function todayISO() { return new Date().toISOString().slice(0,10); }
+function escapeHtml(s) {
+  if (s == null) return "";
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+function formatDate(d) {
+  if (!d) return "";
+  try { return new Date(d+"T00:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); }
+  catch(e) { return d; }
+}
+function needsReview(asset) {
+  if (!asset) return false;
+  const lastReview = asset.lastReviewed || asset.dateAdded;
+  if (!lastReview) return true;
+  if (lastReview < CONFIG.reviewCutoff) return true;
+  const ageMs = Date.now() - new Date(lastReview).getTime();
+  return ageMs > CONFIG.reviewIntervalDays * 86400000;
+}
+function setSync(state, text) {
+  const dot = document.getElementById("sync-dot");
+  const txt = document.getElementById("sync-text");
+  dot.className = "sync-dot " + (state === "ok" ? "" : state);
+  txt.textContent = text;
+}
+function toast(msg, kind) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.className = "toast " + (kind || "") + " show";
+  setTimeout(() => t.classList.remove("show"), 3500);
+}
+
+// ============================================================
+// TABS
+// ============================================================
+function switchTab(name) {
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  document.querySelectorAll(".tab-section").forEach(s => s.classList.toggle("active", s.id === "tab-" + name));
+  render();
+}
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+});
+
+// ============================================================
+// RENDER
+// ============================================================
+function render() {
+  renderOverview();
+  renderPractice();
+  renderIndustry();
+  renderPipeline();
+  renderTabBadges();
+}
+
+function renderTabBadges() {
+  const reviewCount = STATE.library.filter(needsReview).length;
+  document.querySelectorAll(".tab-btn").forEach(b => {
+    const existing = b.querySelector(".tab-badge");
+    if (existing) existing.remove();
+    if (b.dataset.tab === "practice" || b.dataset.tab === "industry") {
+      if (reviewCount > 0) {
+        const badge = document.createElement("span");
+        badge.className = "tab-badge";
+        badge.textContent = reviewCount;
+        b.appendChild(badge);
+      }
+    }
+  });
+}
+
+function renderOverview() {
+  // Stats
+  const lib = STATE.library;
+  const byType = {};
+  lib.forEach(a => byType[a.type] = (byType[a.type]||0) + 1);
+  const reviewCount = lib.filter(needsReview).length;
+
+  const topTypes = Object.entries(byType).sort((a,b) => b[1]-a[1]).slice(0,5);
+  const tiles = [
+    { label: "Total Assets", value: lib.length },
+    { label: "Need Review", value: reviewCount, alert: reviewCount > 0 },
+    { label: "In Pipeline", value: STATE.pipeline.length }
+  ];
+  topTypes.forEach(([t,c]) => tiles.push({ label: t, value: c }));
+
+  document.getElementById("stats-grid").innerHTML = tiles.map(t =>
+    `<div class="stat-card${t.alert ? ' alert' : ''}">
+      <div class="stat-value">${t.value}</div>
+      <div class="stat-label">${escapeHtml(t.label)}</div>
+    </div>`
+  ).join("");
+
+  // Review banner
+  const banner = document.getElementById("review-banner");
+  if (reviewCount > 0) {
+    banner.classList.remove("empty");
+    document.getElementById("review-count").textContent = reviewCount + (reviewCount === 1 ? " item" : " items");
+  } else {
+    banner.classList.add("empty");
+  }
+
+  // Recently viewed
+  const recent = (STATE.recentlyViewed || []).slice(0,8);
+  const recentBox = document.getElementById("recent-strip");
+  if (recent.length > 0) {
+    recentBox.style.display = "block";
+    document.getElementById("recent-list").innerHTML = recent.map(id => {
+      const a = lib.find(x => x.id === id);
+      if (!a) return "";
+      return `<div class="recent-item" onclick="openAsset('${a.id}')">
+        <div class="item-title">${escapeHtml(a.title)}</div>
+        <div class="item-meta">${escapeHtml(a.type)} &middot; ${escapeHtml(a.practiceArea || "")}</div>
+      </div>`;
+    }).join("");
+  } else {
+    recentBox.style.display = "none";
+  }
+}
+
+let practiceFilter = "all";
+let industryFilter = "all";
+
+document.querySelectorAll("[data-pfilter]").forEach(c => {
+  c.addEventListener("click", () => {
+    document.querySelectorAll("[data-pfilter]").forEach(x => x.classList.remove("active"));
+    c.classList.add("active");
+    practiceFilter = c.dataset.pfilter;
+    renderPractice();
+  });
+});
+document.querySelectorAll("[data-ifilter]").forEach(c => {
+  c.addEventListener("click", () => {
+    document.querySelectorAll("[data-ifilter]").forEach(x => x.classList.remove("active"));
+    c.classList.add("active");
+    industryFilter = c.dataset.ifilter;
+    renderIndustry();
+  });
+});
+
+function renderGrouped(containerId, key, allCats, filter) {
+  const container = document.getElementById(containerId);
+  let lib = STATE.library;
+  if (filter === "review") lib = lib.filter(needsReview);
+  if (lib.length === 0) {
+    container.innerHTML = `<div class="empty-state"><h3>${filter === "review" ? "Nothing flagged for review" : "No assets yet"}</h3><p>${filter === "review" ? "Everything is up to date." : "Add assets in the Content Pipeline tab or click + Add Asset above."}</p></div>`;
+    return;
+  }
+  const groups = {};
+  allCats.forEach(c => groups[c] = []);
+  lib.forEach(a => {
+    const cat = a[key] || (key === "practiceArea" ? "Cross-Practice" : "Cross-Industry");
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(a);
+  });
+  const html = Object.entries(groups)
+    .filter(([_,items]) => items.length > 0)
+    .sort((a,b) => b[1].length - a[1].length)
+    .map(([cat,items]) => `
+      <div class="group-section">
+        <div class="group-header">
+          <div class="group-title">${escapeHtml(cat)}</div>
+          <div class="group-count">${items.length} ${items.length === 1 ? "asset" : "assets"}</div>
+        </div>
+        <div class="asset-list">
+          ${items.map(a => assetRowHtml(a)).join("")}
+        </div>
+      </div>
+    `).join("");
+  container.innerHTML = html;
+}
+
+function assetRowHtml(a) {
+  const flag = needsReview(a);
+  return `<div class="asset-row${flag ? ' review-flag' : ''}" onclick="openAsset('${a.id}')">
+    <div>
+      <div class="asset-title">${escapeHtml(a.title)}</div>
+      <div class="asset-meta">${escapeHtml(a.owner || "Unowned")} &middot; Added ${formatDate(a.dateAdded)}${a.lastReviewed ? " &middot; Reviewed " + formatDate(a.lastReviewed) : ""}</div>
+    </div>
+    <span class="chip">${escapeHtml(a.type)}</span>
+    <span class="chip steel">${escapeHtml(a.industry || "Cross-Industry")}</span>
+    ${flag ? '<span class="chip orange">Needs Review</span>' : '<span></span>'}
+    <div class="asset-actions">
+      ${a.url ? `<button class="icon-btn" onclick="event.stopPropagation(); window.open('${escapeHtml(a.url)}','_blank')" title="Open">&#8599;</button>` : ''}
+      <button class="icon-btn" onclick="event.stopPropagation(); openAsset('${a.id}')" title="Edit">&#9998;</button>
+      <button class="icon-btn danger" onclick="event.stopPropagation(); deleteAsset('${a.id}')" title="Delete">&times;</button>
+    </div>
+  </div>`;
+}
+
+function renderPractice() { renderGrouped("practice-groups", "practiceArea", CONFIG.practiceAreas, practiceFilter); }
+function renderIndustry() { renderGrouped("industry-groups", "industry", CONFIG.industries, industryFilter); }
+
+function renderPipeline() {
+  document.getElementById("pipeline-count").textContent = STATE.pipeline.length + " items";
+  const colMap = {
+    "Idea": "col-idea-count",
+    "Drafting": "col-drafting-count",
+    "In Review": "col-review-count",
+    "Approved": "col-approved-count",
+    "Published": "col-published-count"
+  };
+  CONFIG.pipelineStatuses.forEach(status => {
+    const items = STATE.pipeline.filter(p => p.status === status);
+    document.getElementById(colMap[status]).textContent = items.length;
+    const col = document.querySelector(`[data-col="${status}"]`);
+    if (items.length === 0) {
+      col.innerHTML = '<div style="color:var(--caption);font-size:12px;text-align:center;padding:20px 0;">No items</div>';
+    } else {
+      col.innerHTML = items.map(p => `
+        <div class="pipeline-card" onclick="openPipeline('${p.id}')">
+          <div class="pipeline-card-title">${escapeHtml(p.title)}</div>
+          <div class="pipeline-card-chips">
+            <span class="chip">${escapeHtml(p.type)}</span>
+            ${p.autoTagged ? '<span class="auto-tag-badge">AI</span>' : ''}
+          </div>
+          <div class="pipeline-card-meta">${escapeHtml(p.owner || "Unowned")}${p.targetDate ? " &middot; due " + formatDate(p.targetDate) : ""}</div>
+        </div>
+      `).join("");
+    }
+  });
+}
+
+// ============================================================
+// SEARCH
+// ============================================================
+function runSearch() {
+  const q = document.getElementById("search-input").value.trim().toLowerCase();
+  const results = document.getElementById("search-results");
+  if (!q) { results.classList.remove("show"); results.innerHTML = ""; return; }
+
+  const matches = STATE.library.map(a => {
+    const hay = [a.title, a.type, a.practiceArea, a.industry, a.owner, a.description, (a.tags||[]).join(" ")].join(" ").toLowerCase();
+    let score = 0;
+    q.split(/\s+/).forEach(term => {
+      if (!term) return;
+      if (hay.includes(term)) score++;
+      if (a.title && a.title.toLowerCase().includes(term)) score += 2;
+    });
+    return { a, score };
+  }).filter(x => x.score > 0).sort((a,b) => b.score - a.score).slice(0, 12);
+
+  if (matches.length === 0) {
+    results.innerHTML = `<div class="search-empty">
+      <p>Nothing matches "<strong>${escapeHtml(q)}</strong>" in the library yet.</p>
+      <a href="https://form.asana.com/?k=zFupRdwFkdaEzpCW9ILLPg&amp;d=1212923260050528" target="_blank" class="btn btn-orange">Submit a Marketing Request</a>
+    </div>`;
+  } else {
+    results.innerHTML = matches.map(({a}) => `
+      <div class="search-result" onclick="openAsset('${a.id}')">
+        <div>
+          <div class="asset-title">${escapeHtml(a.title)}</div>
+          <div class="asset-meta">${escapeHtml(a.type)} &middot; ${escapeHtml(a.practiceArea || "")} &middot; ${escapeHtml(a.industry || "")}</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          ${needsReview(a) ? '<span class="chip orange">Needs Review</span>' : ''}
+          ${a.url ? `<button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); window.open('${escapeHtml(a.url)}','_blank')">Open</button>` : ''}
+        </div>
+      </div>
+    `).join("");
+  }
+  results.classList.add("show");
+}
+document.getElementById("search-input").addEventListener("input", runSearch);
+document.getElementById("search-input").addEventListener("keydown", e => { if (e.key === "Enter") runSearch(); });
+
+function showReviewItems() {
+  switchTab("practice");
+  document.querySelectorAll("[data-pfilter]").forEach(x => x.classList.remove("active"));
+  document.querySelector('[data-pfilter="review"]').classList.add("active");
+  practiceFilter = "review";
+  renderPractice();
+}
+
+// ============================================================
+// MODALS
+// ============================================================
+function closeModal() {
+  document.getElementById("modal-bg").classList.remove("show");
+  document.getElementById("modal-content").innerHTML = "";
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+function openAsset(id) {
+  const a = STATE.library.find(x => x.id === id);
+  if (!a) return;
+  // Track recently viewed
+  STATE.recentlyViewed = [id, ...(STATE.recentlyViewed||[]).filter(x => x !== id)].slice(0, 12);
+  queueSave();
+  renderAssetModal(a);
+}
+
+function renderAssetModal(a) {
+  const m = document.getElementById("modal-content");
+  m.innerHTML = `
+    <div class="modal-header">
+      <div class="modal-title">Edit Asset</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <label>Title</label>
+        <input id="f-title" value="${escapeHtml(a.title)}">
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Type</label>
+          <select id="f-type">${CONFIG.contentTypes.map(t => `<option${t===a.type?' selected':''}>${t}</option>`).join("")}</select>
+        </div>
+        <div class="form-row">
+          <label>Owner</label>
+          <input id="f-owner" value="${escapeHtml(a.owner||'')}">
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Practice Area</label>
+          <select id="f-practice">${CONFIG.practiceAreas.map(p => `<option${p===a.practiceArea?' selected':''}>${p}</option>`).join("")}</select>
+        </div>
+        <div class="form-row">
+          <label>Industry</label>
+          <select id="f-industry">${CONFIG.industries.map(i => `<option${i===a.industry?' selected':''}>${i}</option>`).join("")}</select>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Link to Asset (URL)</label>
+        <input id="f-url" value="${escapeHtml(a.url||'')}" placeholder="https://...">
+      </div>
+      <div class="form-row">
+        <label>Description / Notes</label>
+        <textarea id="f-desc">${escapeHtml(a.description||'')}</textarea>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Date Added</label>
+          <input type="date" id="f-added" value="${a.dateAdded||todayISO()}">
+        </div>
+        <div class="form-row">
+          <label>Last Reviewed</label>
+          <input type="date" id="f-reviewed" value="${a.lastReviewed||''}">
+        </div>
+      </div>
+      ${needsReview(a) ? `<div style="background:var(--tintpeach);border:1px solid var(--orange);padding:12px;border-radius:var(--radius);margin-top:8px;">
+        <strong style="color:var(--midnavy);font-family:Montserrat">Needs Review</strong>
+        <p style="margin:6px 0 8px;font-size:13px;">Confirm this is still accurate, then mark as reviewed.</p>
+        <button class="btn btn-orange btn-sm" onclick="markReviewed('${a.id}')">Mark Reviewed Today</button>
+      </div>` : ''}
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" onclick="deleteAsset('${a.id}')">Delete</button>
+      <div>
+        ${a.url ? `<button class="btn btn-outline" onclick="window.open('${escapeHtml(a.url)}','_blank')">Open Asset</button>` : ''}
+        <button class="btn btn-primary" onclick="saveAsset('${a.id}')">Save Changes</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("modal-bg").classList.add("show");
+}
+
+function saveAsset(id) {
+  const a = STATE.library.find(x => x.id === id);
+  if (!a) return;
+  a.title = document.getElementById("f-title").value.trim();
+  a.type = document.getElementById("f-type").value;
+  a.owner = document.getElementById("f-owner").value.trim();
+  a.practiceArea = document.getElementById("f-practice").value;
+  a.industry = document.getElementById("f-industry").value;
+  a.url = document.getElementById("f-url").value.trim();
+  a.description = document.getElementById("f-desc").value.trim();
+  a.dateAdded = document.getElementById("f-added").value || todayISO();
+  a.lastReviewed = document.getElementById("f-reviewed").value || a.lastReviewed;
+  closeModal();
+  render();
+  saveState();
+  toast("Saved", "success");
+}
+
+function markReviewed(id) {
+  const a = STATE.library.find(x => x.id === id);
+  if (!a) return;
+  a.lastReviewed = todayISO();
+  closeModal();
+  render();
+  saveState();
+  toast("Marked reviewed", "success");
+}
+
+function deleteAsset(id) {
+  if (!confirm("Delete this asset? This can't be undone.")) return;
+  STATE.library = STATE.library.filter(a => a.id !== id);
+  STATE.recentlyViewed = (STATE.recentlyViewed||[]).filter(x => x !== id);
+  closeModal();
+  render();
+  saveState();
+  toast("Deleted", "success");
+}
+
+function openNewAssetModal() {
+  const a = {
+    id: uid(),
+    title: "",
+    type: "Case Study",
+    owner: currentUser,
+    practiceArea: "Cross-Practice",
+    industry: "Cross-Industry",
+    url: "",
+    description: "",
+    dateAdded: todayISO(),
+    lastReviewed: todayISO(),
+    isNew: true
+  };
+  renderAssetModal(a);
+  document.getElementById("modal-content").querySelector(".modal-title").textContent = "Add New Asset";
+  document.getElementById("modal-content").querySelector(".btn-primary").setAttribute("onclick", `addAssetFromModal('${a.id}')`);
+  // Stash temp
+  window._tempAsset = a;
+}
+
+function addAssetFromModal(id) {
+  const a = window._tempAsset;
+  if (!a) return;
+  a.title = document.getElementById("f-title").value.trim();
+  if (!a.title) { toast("Title is required", "error"); return; }
+  a.type = document.getElementById("f-type").value;
+  a.owner = document.getElementById("f-owner").value.trim();
+  a.practiceArea = document.getElementById("f-practice").value;
+  a.industry = document.getElementById("f-industry").value;
+  a.url = document.getElementById("f-url").value.trim();
+  a.description = document.getElementById("f-desc").value.trim();
+  a.dateAdded = document.getElementById("f-added").value || todayISO();
+  a.lastReviewed = document.getElementById("f-reviewed").value || todayISO();
+  delete a.isNew;
+  STATE.library.unshift(a);
+  window._tempAsset = null;
+  closeModal();
+  render();
+  saveState();
+  toast("Asset added", "success");
+}
+
+// ============================================================
+// PIPELINE
+// ============================================================
+function openPipeline(id) {
+  const p = STATE.pipeline.find(x => x.id === id);
+  if (!p) return;
+  renderPipelineModal(p);
+}
+
+function renderPipelineModal(p) {
+  const m = document.getElementById("modal-content");
+  m.innerHTML = `
+    <div class="modal-header">
+      <div class="modal-title">${p.isNew ? "Add Pipeline Item" : "Edit Pipeline Item"}</div>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      ${p.autoTagged && p.isNew ? `<div style="background:var(--tintnavy);padding:12px;border-radius:var(--radius);margin-bottom:16px;font-size:13px;">
+        <strong style="color:var(--midnavy);font-family:Montserrat">Auto-tagged from filename.</strong> Adjust below if anything's off.
+      </div>` : ''}
+      <div class="form-row">
+        <label>Title</label>
+        <input id="p-title" value="${escapeHtml(p.title)}">
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Status</label>
+          <select id="p-status">${CONFIG.pipelineStatuses.map(s => `<option${s===p.status?' selected':''}>${s}</option>`).join("")}</select>
+        </div>
+        <div class="form-row">
+          <label>Type</label>
+          <select id="p-type">${CONFIG.contentTypes.map(t => `<option${t===p.type?' selected':''}>${t}</option>`).join("")}</select>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Practice Area</label>
+          <select id="p-practice">${CONFIG.practiceAreas.map(x => `<option${x===p.practiceArea?' selected':''}>${x}</option>`).join("")}</select>
+        </div>
+        <div class="form-row">
+          <label>Industry</label>
+          <select id="p-industry">${CONFIG.industries.map(x => `<option${x===p.industry?' selected':''}>${x}</option>`).join("")}</select>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label>Owner</label>
+          <input id="p-owner" value="${escapeHtml(p.owner||currentUser)}">
+        </div>
+        <div class="form-row">
+          <label>Target Date</label>
+          <input type="date" id="p-target" value="${p.targetDate||''}">
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Notes</label>
+        <textarea id="p-notes">${escapeHtml(p.notes||'')}</textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      ${p.isNew ? '<div></div>' : `<button class="btn btn-danger" onclick="deletePipeline('${p.id}')">Delete</button>`}
+      <div>
+        ${!p.isNew && p.status === "Published" ? `<button class="btn btn-outline" onclick="promoteToLibrary('${p.id}')">Move to Library</button>` : ''}
+        <button class="btn btn-primary" onclick="${p.isNew ? `addPipelineFromModal('${p.id}')` : `savePipeline('${p.id}')`}">${p.isNew ? "Add" : "Save"}</button>
+      </div>
+    </div>
+  `;
+  document.getElementById("modal-bg").classList.add("show");
+}
+
+function openNewPipelineModal() {
+  const p = {
+    id: uid(),
+    title: "",
+    status: "Idea",
+    type: "Case Study",
+    practiceArea: "Cross-Practice",
+    industry: "Cross-Industry",
+    owner: currentUser,
+    targetDate: "",
+    notes: "",
+    dateAdded: todayISO(),
+    isNew: true
+  };
+  window._tempPipeline = p;
+  renderPipelineModal(p);
+}
+
+function addPipelineFromModal(id) {
+  const p = window._tempPipeline;
+  if (!p) return;
+  p.title = document.getElementById("p-title").value.trim();
+  if (!p.title) { toast("Title is required", "error"); return; }
+  p.status = document.getElementById("p-status").value;
+  p.type = document.getElementById("p-type").value;
+  p.practiceArea = document.getElementById("p-practice").value;
+  p.industry = document.getElementById("p-industry").value;
+  p.owner = document.getElementById("p-owner").value.trim();
+  p.targetDate = document.getElementById("p-target").value;
+  p.notes = document.getElementById("p-notes").value.trim();
+  delete p.isNew;
+  STATE.pipeline.unshift(p);
+  window._tempPipeline = null;
+  closeModal();
+  render();
+  saveState();
+  toast("Added to pipeline", "success");
+}
+
+function savePipeline(id) {
+  const p = STATE.pipeline.find(x => x.id === id);
+  if (!p) return;
+  p.title = document.getElementById("p-title").value.trim();
+  p.status = document.getElementById("p-status").value;
+  p.type = document.getElementById("p-type").value;
+  p.practiceArea = document.getElementById("p-practice").value;
+  p.industry = document.getElementById("p-industry").value;
+  p.owner = document.getElementById("p-owner").value.trim();
+  p.targetDate = document.getElementById("p-target").value;
+  p.notes = document.getElementById("p-notes").value.trim();
+  closeModal();
+  render();
+  saveState();
+  toast("Saved", "success");
+}
+
+function deletePipeline(id) {
+  if (!confirm("Delete this pipeline item?")) return;
+  STATE.pipeline = STATE.pipeline.filter(p => p.id !== id);
+  closeModal();
+  render();
+  saveState();
+  toast("Deleted", "success");
+}
+
+function promoteToLibrary(id) {
+  const p = STATE.pipeline.find(x => x.id === id);
+  if (!p) return;
+  const a = {
+    id: uid(),
+    title: p.title,
+    type: p.type,
+    owner: p.owner,
+    practiceArea: p.practiceArea,
+    industry: p.industry,
+    url: "",
+    description: p.notes,
+    dateAdded: todayISO(),
+    lastReviewed: todayISO()
+  };
+  STATE.library.unshift(a);
+  STATE.pipeline = STATE.pipeline.filter(x => x.id !== id);
+  closeModal();
+  render();
+  saveState();
+  toast("Moved to Library", "success");
+}
+
+// ============================================================
+// DROPZONE
+// ============================================================
+const dropzone = document.getElementById("dropzone");
+const fileInput = document.getElementById("file-input");
+
+["dragenter","dragover"].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add("dragover"); }));
+["dragleave","drop"].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove("dragover"); }));
+dropzone.addEventListener("drop", e => handleFiles(e.dataTransfer.files));
+fileInput.addEventListener("change", e => handleFiles(e.target.files));
+
+async function handleFiles(files) {
+  if (!files || !files.length) return;
+  toast("Auto-tagging " + files.length + " file" + (files.length === 1 ? "" : "s") + "...", "info");
+  for (const file of files) {
+    const tags = await autoTag(file.name);
+    const titleGuess = file.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+    const p = {
+      id: uid(),
+      title: titleGuess,
+      status: "Drafting",
+      type: tags.type,
+      practiceArea: tags.practiceArea,
+      industry: tags.industry,
+      owner: currentUser,
+      targetDate: "",
+      notes: "From file: " + file.name,
+      dateAdded: todayISO(),
+      autoTagged: true,
+      filename: file.name,
+      fileSize: file.size
+    };
+    STATE.pipeline.unshift(p);
+  }
+  render();
+  await saveState();
+  toast("Added to pipeline. Review the auto-tags.", "success");
+}
+
+// ============================================================
+// EXPORT / IMPORT
+// ============================================================
+function exportData() {
+  const blob = new Blob([JSON.stringify(STATE, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "beckway-marketing-hub-" + todayISO() + ".json";
+  a.click();
+  URL.revokeObjectURL(url);
+  toast("Exported", "success");
+}
+
+function importData(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!confirm("Import will replace all current hub data. Continue?")) return;
+      STATE = Object.assign({ library: [], pipeline: [], recentlyViewed: [] }, data);
+      render();
+      saveState();
+      toast("Imported successfully", "success");
+    } catch (err) {
+      toast("Import failed: " + err.message, "error");
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+(async function init() {
+  await loadState();
+  render();
+})();
+</script>
+</body>
+</html>
